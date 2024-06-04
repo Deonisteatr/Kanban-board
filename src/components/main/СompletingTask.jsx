@@ -25,12 +25,9 @@ const CompletingTask = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const newDiscription = values.description;
-        const updatedTasks = tasks.map(task => {
-            if (task.id === taskId) {
-                return {...task, description: newDiscription}
-            }
-            return task
-        });
+     const updatedTasks = tasks.map(task =>
+    task.id === taskId ? { ...task, description: newDiscription } : task
+);
         setTasks(updatedTasks)
         setFormVisible(false)
     }
